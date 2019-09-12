@@ -39,20 +39,6 @@ class Category extends Model
 		$this->setData($results[0]);
 	}
 
-	public function update()
-	{
-		$sql = new Sql();
-
-		$results = $sql->select("call sp_categories_save(:idcategory, :descategory)", array(
-			":idcategory" => $this->getidcategory(),
-			":descategory" => $this->getdescategory()
-		));
-
-		$this->setData($results[0]);
-
-		Category::updateFile();
-	}
-
 	public function delete()
 	{
 		$sql = new Sql();
